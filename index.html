@@ -1,0 +1,3122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Service Center - All-in-One Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-dark: #0a192f;
+            --secondary-dark: #112240;
+            --accent-blue: #64ffda;
+            --accent-light-blue: #52d1ed;
+            --text-light: #ccd6f6;
+            --text-gray: #8892b0;
+            --card-bg: #172a45;
+            --shadow: rgba(2, 12, 27, 0.7);
+            --success-color: #4CAF50;
+            --warning-color: #FF9800;
+            --info-color: #2196F3;
+            --danger-color: #f44336;
+        }
+
+        body {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--secondary-dark);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            color: var(--accent-blue);
+            font-size: 2rem;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--accent-blue), var(--accent-light-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .nav-links a.active {
+            color: var(--accent-blue);
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--accent-blue);
+        }
+
+        /* Search Bar */
+        .search-container {
+            margin: 2rem auto;
+            max-width: 600px;
+            padding: 0 2rem;
+            display: flex;
+            gap: 10px;
+        }
+
+        #serviceSearch {
+            flex: 1;
+            padding: 12px 20px;
+            border: 2px solid var(--card-bg);
+            background-color: var(--secondary-dark);
+            color: var(--text-light);
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        #serviceSearch:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+        }
+
+        .search-container button {
+            background: linear-gradient(to right, var(--accent-blue), var(--accent-light-blue));
+            color: var(--primary-dark);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .search-container button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            max-width: 1400px;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--card-bg);
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .badge:hover {
+            transform: translateY(-5px);
+        }
+
+        .badge i {
+            font-size: 1.5rem;
+            color: var(--accent-blue);
+        }
+
+        .badge span {
+            font-weight: 500;
+        }
+
+        /* Security Badges */
+        .security-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            max-width: 1400px;
+        }
+
+        /* Hero Section - Enhanced */
+        .hero {
+            padding: 5rem 2rem;
+            background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9)),
+                url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-radius: 0 0 20px 20px;
+            position: relative;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .highlight {
+            background: linear-gradient(to right, var(--accent-blue), var(--accent-light-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin: 1rem 0;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+            background: rgba(100, 255, 218, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 150px;
+            backdrop-filter: blur(10px);
+        }
+
+        .number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 5px;
+        }
+
+        .label {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--accent-blue), var(--accent-light-blue));
+            color: var(--primary-dark);
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(100, 255, 218, 0.2);
+        }
+
+        .cta-button.whatsapp {
+            background: linear-gradient(to right, #25D366, #128C7E);
+            color: white;
+        }
+
+        .cta-button.phone {
+            background: linear-gradient(to right, var(--info-color), #0d8bf2);
+            color: white;
+        }
+
+        .cta-button.email {
+            background: linear-gradient(to right, #EA4335, #D14836);
+            color: white;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--accent-blue);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .service-category {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: transform 0.3s, opacity 0.5s;
+            opacity: 1;
+            transform: translateY(0);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-category:hover {
+            transform: translateY(-10px);
+        }
+
+        .category-header {
+            background: linear-gradient(to right, var(--secondary-dark), var(--primary-dark));
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            color: var(--accent-blue);
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .service-badge {
+            background: var(--accent-blue);
+            color: var(--primary-dark);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .services-list {
+            padding: 1.5rem;
+            list-style: none;
+        }
+
+        .services-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .services-list li:last-child {
+            border-bottom: none;
+        }
+
+        .services-list i {
+            color: var(--accent-light-blue);
+            font-size: 0.9rem;
+        }
+
+        /* Testimonial Slider Styles */
+        .testimonial-slider-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 60px;
+            overflow: hidden;
+        }
+
+        .testimonial-slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            gap: 2rem;
+            padding: 1rem 0;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            transition: opacity 0.5s;
+            opacity: 0;
+            display: none;
+        }
+
+        .testimonial-slide.active {
+            opacity: 1;
+            display: block;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Slider Navigation Buttons */
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(100, 255, 218, 0.1);
+            border: 2px solid var(--accent-blue);
+            color: var(--accent-blue);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .slider-btn:hover {
+            background: var(--accent-blue);
+            color: var(--primary-dark);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev-btn {
+            left: 0;
+        }
+
+        .next-btn {
+            right: 0;
+        }
+
+        /* Slider Dots */
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--text-gray);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: var(--accent-blue);
+            transform: scale(1.2);
+        }
+
+        .dot:hover {
+            background: var(--accent-light-blue);
+        }
+
+        /* Auto-play Controls */
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            background: linear-gradient(to right, var(--accent-blue), var(--accent-light-blue));
+            color: var(--primary-dark);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s;
+        }
+
+        .control-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .slider-speed {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-gray);
+        }
+
+        .speed-btn {
+            background: var(--secondary-dark);
+            color: var(--text-light);
+            border: 1px solid var(--accent-blue);
+            padding: 5px 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .speed-btn:hover {
+            background: var(--accent-blue);
+            color: var(--primary-dark);
+        }
+
+        #speedDisplay {
+            color: var(--accent-blue);
+            font-weight: bold;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: rgba(100, 255, 218, 0.05);
+        }
+
+        .faq-question h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .faq-question i {
+            color: var(--accent-blue);
+            transition: transform 0.3s;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s;
+        }
+
+        .faq-answer.active {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            color: var(--text-gray);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 5rem 2rem;
+            background: var(--secondary-dark);
+        }
+
+        .pricing-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.popular::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--accent-blue);
+            color: var(--primary-dark);
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 0 0 0 10px;
+        }
+
+        .pricing-header {
+            padding: 2rem;
+            text-align: center;
+            background: linear-gradient(to right, var(--secondary-dark), var(--primary-dark));
+        }
+
+        .pricing-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-gray);
+        }
+
+        /* Price Save Badge */
+        .price-save {
+            background: var(--success-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        /* Premium Card Special Style */
+        .pricing-card.premium {
+            border: 2px solid var(--accent-blue);
+            position: relative;
+        }
+
+        .pricing-card.premium::before {
+            content: 'PREMIUM';
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: linear-gradient(to right, var(--accent-blue), var(--accent-light-blue));
+            color: var(--primary-dark);
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 0 0 0 10px;
+        }
+
+        .pricing-features {
+            padding: 2rem;
+            list-style: none;
+        }
+
+        .pricing-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features i {
+            color: var(--success-color);
+        }
+
+        .pricing-button {
+            display: block;
+            text-align: center;
+            background: linear-gradient(to right, var(--accent-blue), var(--accent-light-blue));
+            color: var(--primary-dark);
+            padding: 1rem;
+            margin: 0 2rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+
+        .pricing-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contact Form Styles */
+        .contact-form-container {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .contact-form-container h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-blue);
+        }
+
+        .form-subtitle {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-group label i {
+            color: var(--accent-blue);
+            width: 20px;
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            padding: 12px 15px;
+            background: var(--secondary-dark);
+            border: 2px solid rgba(100, 255, 218, 0.1);
+            border-radius: 5px;
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.1);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: var(--text-gray);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            padding: 8px 15px;
+            background: var(--secondary-dark);
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .radio-option:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        .radio-option input[type="radio"] {
+            margin: 0;
+        }
+
+        .radio-option i {
+            color: var(--accent-blue);
+        }
+
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .checkbox-option input[type="checkbox"] {
+            margin: 0;
+        }
+
+        .submit-btn {
+            background: linear-gradient(to right, var(--accent-blue), var(--accent-light-blue));
+            color: var(--primary-dark);
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(100, 255, 218, 0.2);
+        }
+
+        .form-note {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--secondary-dark);
+            padding: 4rem 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            background-color: var(--primary-dark);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--accent-blue);
+        }
+
+        /* Map Container */
+        .map-container {
+            margin: 3rem auto;
+            max-width: 1400px;
+            padding: 0 2rem;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-dark);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent-blue);
+        }
+
+        .copyright {
+            color: var(--text-gray);
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Additional Features CSS */
+        /* Loading Spinner */
+        .loading-spinner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(100, 255, 218, 0.2);
+            border-top: 5px solid var(--accent-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Cookie Consent */
+        .cookie-consent {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cookie-consent p {
+            margin: 0;
+            flex: 1;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+        }
+
+        .whatsapp-float a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(to right, #25D366, #128C7E);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float a:hover {
+            transform: scale(1.05);
+        }
+
+        .whatsapp-float i {
+            font-size: 1.5rem;
+        }
+
+        /* Live Chat */
+        .chat-toggle {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: linear-gradient(to right, var(--accent-blue), var(--accent-light-blue));
+            color: var(--primary-dark);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            transition: transform 0.3s;
+        }
+
+        .chat-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .live-chat {
+            position: fixed;
+            bottom: 170px;
+            right: 30px;
+            width: 350px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px var(--shadow);
+            z-index: 100;
+            display: none;
+        }
+
+        .chat-header {
+            padding: 1rem;
+            background: var(--secondary-dark);
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-status {
+            font-size: 0.8rem;
+            color: var(--success-color);
+        }
+
+        .chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+
+        .message.agent {
+            background: var(--secondary-dark);
+            align-self: flex-start;
+        }
+
+        .chat-input {
+            padding: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chat-input input {
+            width: 100%;
+            padding: 10px;
+            background: var(--secondary-dark);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 5px;
+            color: var(--text-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .services-grid,
+            .pricing-table {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+
+            .pricing-table {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .contact-info {
+                order: 2;
+            }
+
+            .contact-form-container {
+                order: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--secondary-dark);
+                flex-direction: column;
+                padding: 1rem 0;
+                text-align: center;
+                box-shadow: 0 10px 20px var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                gap: 1rem;
+            }
+
+            .stat {
+                min-width: 120px;
+                padding: 15px;
+            }
+
+            .number {
+                font-size: 2rem;
+            }
+
+            .testimonial-slider-container {
+                padding: 0 40px;
+            }
+
+            .slider-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .slider-controls {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .slider-dots {
+                margin-top: 1rem;
+            }
+
+            .cookie-consent {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .pricing-table {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .service-category {
+                margin-bottom: 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .cta-button {
+                text-align: center;
+            }
+
+            .trust-badges,
+            .security-badges {
+                gap: 1rem;
+            }
+
+            .badge {
+                padding: 10px 15px;
+                flex: 1;
+                min-width: 150px;
+            }
+
+            .contact-form-container {
+                padding: 1.5rem;
+            }
+
+            .radio-group {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .testimonial-slider-container {
+                padding: 0 30px;
+            }
+
+            .slider-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+
+            .live-chat {
+                width: 300px;
+                right: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .live-chat {
+                width: 280px;
+                right: 10px;
+            }
+
+            .whatsapp-float a span {
+                display: none;
+            }
+
+            .whatsapp-float a {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-spinner">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Cookie Consent -->
+    <div id="cookieConsent" class="cookie-consent">
+        <p>We use cookies to improve your experience. By continuing, you agree to our <a href="#"
+                style="color: var(--accent-blue);">Privacy Policy</a>.</p>
+        <button id="acceptCookies" class="cta-button" style="padding: 8px 20px;">Accept</button>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/919876543210" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            <span>Chat Now</span>
+        </a>
+    </div>
+
+    <!-- Chat Toggle Button -->
+    <div class="chat-toggle" id="chatToggle">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <!-- Live Chat Widget -->
+    <div class="live-chat" id="liveChat">
+        <div class="chat-header">
+            <h4>Need Help?</h4>
+            <span class="chat-status online">● Online</span>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message agent">
+                <p>Hello! How can I help you today?</p>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chatInput" placeholder="Type your message...">
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-concierge-bell"></i></div>
+                <div class="logo-text">Prime<span style="color: #64ffda;">Service</span></div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Your One-Stop Solution for All Services</h1>
+            <p>We provide comprehensive services ranging from document management to travel bookings, financial
+                services, and more. All under one roof with professional assistance.</p>
+            <p class="highlight">1000+ Happy Customers | 50+ Services | Est. 2010</p>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="number">10,000+</span>
+                    <span class="label">Services Done</span>
+                </div>
+                <div class="stat">
+                    <span class="number">24/7</span>
+                    <span class="label">Support Available</span>
+                </div>
+                <div class="stat">
+                    <span class="number">₹0</span>
+                    <span class="label">Consultation Fee</span>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="tel:+919876543210" class="cta-button phone">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+                <a href="https://wa.me/919876543210" target="_blank" class="cta-button whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="#contact" class="cta-button email">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <div class="trust-badges">
+        <div class="badge">
+            <i class="fas fa-shield-alt"></i>
+            <span>Secure & Confidential</span>
+        </div>
+        <div class="badge">
+            <i class="fas fa-clock"></i>
+            <span>Same Day Service</span>
+        </div>
+        <div class="badge">
+            <i class="fas fa-rupee-sign"></i>
+            <span>No Hidden Charges</span>
+        </div>
+        <div class="badge">
+            <i class="fas fa-certificate"></i>
+            <span>Govt. Authorized</span>
+        </div>
+    </div>
+
+    <!-- Security Badges -->
+    <div class="security-badges">
+        <div class="badge">
+            <i class="fas fa-lock"></i>
+            <span>Secure Payment</span>
+        </div>
+        <div class="badge">
+            <i class="fas fa-shield-alt"></i>
+            <span>Data Protected</span>
+        </div>
+        <div class="badge">
+            <i class="fas fa-user-shield"></i>
+            <span>Privacy Guaranteed</span>
+        </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="serviceSearch" placeholder="Search for a service...">
+        <button><i class="fas fa-search"></i></button>
+    </div>
+
+    <!-- Services Section -->
+    <div class="container" id="services">
+        <h2 class="section-title">Our Services</h2>
+
+        <div class="services-grid">
+            <!-- Documentation Services Cards -->
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-id-card"></i></div>
+                    <div class="category-title">Aadhar Services</div>
+                    <span class="service-badge">₹150</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> Name/Address Correction</li>
+                    <li><i class="fas fa-check-circle"></i> Mobile/Email Update</li>
+                    <li><i class="fas fa-check-circle"></i> Biometric Update</li>
+                    <li><i class="fas fa-check-circle"></i> Photo Update</li>
+                    <li><i class="fas fa-check-circle"></i> Reprint Aadhar Card</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-credit-card"></i></div>
+                    <div class="category-title">PAN Card Services</div>
+                    <span class="service-badge">₹150</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> New PAN Card Application</li>
+                    <li><i class="fas fa-check-circle"></i> PAN Card Correction</li>
+                    <li><i class="fas fa-check-circle"></i> Reprint PAN Card</li>
+                    <li><i class="fas fa-check-circle"></i> PAN-Aadhar Linking</li>
+                    <li><i class="fas fa-check-circle"></i> TAN Registration</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-id-card-alt"></i></div>
+                    <div class="category-title">Driving License</div>
+                    <span class="service-badge">₹200</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> New License Application</li>
+                    <li><i class="fas fa-check-circle"></i> Learner's License</li>
+                    <li><i class="fas fa-check-circle"></i> License Renewal</li>
+                    <li><i class="fas fa-check-circle"></i> Address Change</li>
+                    <li><i class="fas fa-check-circle"></i> International Driving Permit</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="category-title">Resume Making</div>
+                    <span class="service-badge">₹50</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> Professional Resume Design</li>
+                    <li><i class="fas fa-check-circle"></i> Cover Letter Writing</li>
+                    <li><i class="fas fa-check-circle"></i> CV/Portfolio Creation</li>
+                    <li><i class="fas fa-check-circle"></i> Resume Formatting</li>
+                    <li><i class="fas fa-check-circle"></i> Print & PDF Export</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="category-title">Exam Forms</div>
+                    <span class="service-badge">₹50</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> University Application</li>
+                    <li><i class="fas fa-check-circle"></i> Competitive Exam Forms</li>
+                    <li><i class="fas fa-check-circle"></i> Scholarship Forms</li>
+                    <li><i class="fas fa-check-circle"></i> Admission Forms</li>
+                    <li><i class="fas fa-check-circle"></i> Document Upload Assistance</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-file-contract"></i></div>
+                    <div class="category-title">Govt. Forms</div>
+                    <span class="service-badge">₹50</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> Ration Card Application</li>
+                    <li><i class="fas fa-check-circle"></i> Passport Application</li>
+                    <li><i class="fas fa-check-circle"></i> Voter ID Application</li>
+                    <li><i class="fas fa-check-circle"></i> Income Certificate</li>
+                    <li><i class="fas fa-check-circle"></i> Caste Certificate</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-home"></i></div>
+                    <div class="category-title">Property Services</div>
+                    <span class="service-badge">₹100</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> Land Tax Receipt</li>
+                    <li><i class="fas fa-check-circle"></i> Property Bill Payment</li>
+                    <li><i class="fas fa-check-circle"></i> Mutation Certificate</li>
+                    <li><i class="fas fa-check-circle"></i> Encumbrance Certificate</li>
+                    <li><i class="fas fa-check-circle"></i> Property Registration</li>
+                </ul>
+            </div>
+            <!-- Banking & Financial Services Cards -->
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-money-bill-transfer"></i></div>
+                    <div class="category-title">Money Transfer</div>
+                    <span class="service-badge">₹49</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> Domestic Money Transfer</li>
+                    <li><i class="fas fa-check-circle"></i> International Remittance</li>
+                    <li><i class="fas fa-check-circle"></i> NEFT/RTGS/IMPS</li>
+                    <li><i class="fas fa-check-circle"></i> UPI Payments</li>
+                    <li><i class="fas fa-check-circle"></i> Cash Deposit/Withdrawal</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-landmark"></i></div>
+                    <div class="category-title">Bank Account Creation</div>
+                    <span class="service-badge">₹99</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> Savings Account</li>
+                    <li><i class="fas fa-check-circle"></i> Current Account</li>
+                    <li><i class="fas fa-check-circle"></i> Zero Balance Account</li>
+                    <li><i class="fas fa-check-circle"></i> Joint Account</li>
+                    <li><i class="fas fa-check-circle"></i> Minor Account</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-book"></i></div>
+                    <div class="category-title">Passbook Services</div>
+                    <span class="service-badge">₹49</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> New Passbook Issuance</li>
+                    <li><i class="fas fa-check-circle"></i> Passbook Update</li>
+                    <li><i class="fas fa-check-circle"></i> Duplicate Passbook</li>
+                    <li><i class="fas fa-check-circle"></i> Statement Printing</li>
+                    <li><i class="fas fa-check-circle"></i> Account Balance Check</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-id-card"></i></div>
+                    <div class="category-title">Aadhar Banking</div>
+                    <span class="service-badge">₹29</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> Aadhar-Based Cash Withdrawal</li>
+                    <li><i class="fas fa-check-circle"></i> Aadhar-Based Balance Enquiry</li>
+                    <li><i class="fas fa-check-circle"></i> Mini Statement</li>
+                    <li><i class="fas fa-check-circle"></i> Aadhar Payment Bridge</li>
+                    <li><i class="fas fa-check-circle"></i> Bank-Aadhar Linking</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-tag"></i></div>
+                    <div class="category-title">Fastag Services</div>
+                    <span class="service-badge">₹99</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> New Fastag Application</li>
+                    <li><i class="fas fa-check-circle"></i> Fastag Recharge</li>
+                    <li><i class="fas fa-check-circle"></i> Fastag Replacement</li>
+                    <li><i class="fas fa-check-circle"></i> Balance Check</li>
+                    <li><i class="fas fa-check-circle"></i> Transaction History</li>
+                </ul>
+            </div>
+
+            <!-- Travel & Booking Cards -->
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-plane"></i></div>
+                    <div class="category-title">Flight Ticket Booking</div>
+                    <span class="service-badge">₹0 Commission</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> Domestic Flights</li>
+                    <li><i class="fas fa-check-circle"></i> International Flights</li>
+                    <li><i class="fas fa-check-circle"></i> Hotel Booking</li>
+                    <li><i class="fas fa-check-circle"></i> Travel Insurance</li>
+                    <li><i class="fas fa-check-circle"></i> Flight Status Check</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-train"></i></div>
+                    <div class="category-title">Train Ticket Booking</div>
+                    <span class="service-badge">₹0 Commission</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> General Ticket Booking</li>
+                    <li><i class="fas fa-check-circle"></i> Tatkal Ticket Booking</li>
+                    <li><i class="fas fa-check-circle"></i> PNR Status Check</li>
+                    <li><i class="fas fa-check-circle"></i> Train Schedule & Availability</li>
+                    <li><i class="fas fa-check-circle"></i> Cancellation & Refund</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-bus"></i></div>
+                    <div class="category-title">Bus Ticket Booking</div>
+                    <span class="service-badge">₹0 Commission</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> Government Buses</li>
+                    <li><i class="fas fa-check-circle"></i> Private Buses</li>
+                    <li><i class="fas fa-check-circle"></i> Volvo/Sleeper Buses</li>
+                    <li><i class="fas fa-check-circle"></i> Seat Selection</li>
+                    <li><i class="fas fa-check-circle"></i> Online/Offline Payment</li>
+                </ul>
+            </div>
+            <!-- Printing & Design Studio Cards -->
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-copy"></i></div>
+                    <div class="category-title">Photocopy Services</div>
+                    <span class="service-badge">₹2/page</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> Black & White Copy</li>
+                    <li><i class="fas fa-check-circle"></i> Color Copy</li>
+                    <li><i class="fas fa-check-circle"></i> Large Format Printing</li>
+                    <li><i class="fas fa-check-circle"></i> Document Scanning</li>
+                    <li><i class="fas fa-check-circle"></i> Binding & Lamination</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="category-title">Resume Making</div>
+                    <span class="service-badge">₹50</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> Professional Resume Design</li>
+                    <li><i class="fas fa-check-circle"></i> Cover Letter Writing</li>
+                    <li><i class="fas fa-check-circle"></i> LinkedIn Profile Optimization</li>
+                    <li><i class="fas fa-check-circle"></i> Resume Printing</li>
+                    <li><i class="fas fa-check-circle"></i> Multiple Format Export</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-mug-hot"></i></div>
+                    <div class="category-title">Cup/Mug Printing</div>
+                    <span class="service-badge">₹100</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> Custom Text Printing</li>
+                    <li><i class="fas fa-check-circle"></i> Photo/Image Printing</li>
+                    <li><i class="fas fa-check-circle"></i> Logo & Design Printing</li>
+                    <li><i class="fas fa-check-circle"></i> Gift Wrapping Available</li>
+                    <li><i class="fas fa-check-circle"></i> Same Day Delivery</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-desktop"></i></div>
+                    <div class="category-title">Online Form Assistance</div>
+                    <span class="service-badge">₹50</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> Government Form Filling</li>
+                    <li><i class="fas fa-check-circle"></i> Exam Form Submission</li>
+                    <li><i class="fas fa-check-circle"></i> Scholarship Applications</li>
+                    <li><i class="fas fa-check-circle"></i> Document Upload Assistance</li>
+                    <li><i class="fas fa-check-circle"></i> Payment Gateway Help</li>
+                </ul>
+            </div>
+
+            <!-- Government & Utility Services Cards -->
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-id-card"></i></div>
+                    <div class="category-title">Aadhar Services</div>
+                    <span class="service-badge">₹150</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> Aadhar Card Application</li>
+                    <li><i class="fas fa-check-circle"></i> Aadhar Correction/Update</li>
+                    <li><i class="fas fa-check-circle"></i> Aadhar Reprint</li>
+                    <li><i class="fas fa-check-circle"></i> Biometric Update</li>
+                    <li><i class="fas fa-check-circle"></i> Address Change</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-credit-card"></i></div>
+                    <div class="category-title">PAN Card Services</div>
+                    <span class="service-badge">₹150</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> New PAN Card Application</li>
+                    <li><i class="fas fa-check-circle"></i> PAN Card Reprint</li>
+                    <li><i class="fas fa-check-circle"></i> PAN Card Correction</li>
+                    <li><i class="fas fa-check-circle"></i> PAN-Aadhar Linking</li>
+                    <li><i class="fas fa-check-circle"></i> PAN Card Status Check</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-file-contract"></i></div>
+                    <div class="category-title">Government Form Filling</div>
+                    <span class="service-badge">₹50</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> Exam Form Filling</li>
+                    <li><i class="fas fa-check-circle"></i> Scholarship Forms</li>
+                    <li><i class="fas fa-check-circle"></i> Pension Forms</li>
+                    <li><i class="fas fa-check-circle"></i> Ration Card Forms</li>
+                    <li><i class="fas fa-check-circle"></i> Passport Forms</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-tag"></i></div>
+                    <div class="category-title">Fastag Services</div>
+                    <span class="service-badge">₹200</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> New Fastag Application</li>
+                    <li><i class="fas fa-check-circle"></i> Fastag Recharge</li>
+                    <li><i class="fas fa-check-circle"></i> Fastag Replacement</li>
+                    <li><i class="fas fa-check-circle"></i> KYC Update</li>
+                    <li><i class="fas fa-check-circle"></i> Balance Transfer</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-home"></i></div>
+                    <div class="category-title">Property Services</div>
+                    <span class="service-badge">₹100</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> Land Tax Receipt</li>
+                    <li><i class="fas fa-check-circle"></i> Mutation Certificate</li>
+                    <li><i class="fas fa-check-circle"></i> Property Registration</li>
+                    <li><i class="fas fa-check-circle"></i> Encumbrance Certificate</li>
+                    <li><i class="fas fa-check-circle"></i> Property Tax Payment</li>
+                </ul>
+            </div>
+            <!-- Retail & Sales -->
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="category-title">Retail & Sales</div>
+                    <span class="service-badge">Best Prices</span>
+                </div>
+                <ul class="services-list">
+                    <li><i class="fas fa-check-circle"></i> Selling Electronics/Electronic Goods</li>
+                    <li><i class="fas fa-check-circle"></i> Custom Printing Products</li>
+                    <li><i class="fas fa-check-circle"></i> Office & Stationery Supplies</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title">What Our Customers Say</h2>
+
+        <!-- Testimonial Slider Container -->
+        <div class="testimonial-slider-container">
+            <!-- Slider Navigation -->
+            <button class="slider-btn prev-btn" onclick="moveSlide(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <div class="testimonial-slider">
+                <!-- Testimonial Slides -->
+                <div class="testimonial-slide active">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            Excellent service! Got my Aadhar correction done in just 3 days. The staff is very helpful
+                            and
+                            professional.
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">RK</div>
+                            <div class="author-info">
+                                <h4>Rajesh Kumar</h4>
+                                <p>Aadhar Correction Service</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            One-stop solution for all my document needs. They helped me with PAN card, bank account, and
+                            even
+                            booked my train tickets!
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">PS</div>
+                            <div class="author-info">
+                                <h4>Priya Sharma</h4>
+                                <p>Multiple Services</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            The resume making service is fantastic. They created a professional resume that helped me
+                            get my
+                            dream job!
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AM</div>
+                            <div class="author-info">
+                                <h4>Amit Mehta</h4>
+                                <p>Resume Service</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            Fastag service was super quick! Got my Fastag delivered at home within 24 hours. Excellent
+                            home
+                            service!
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SN</div>
+                            <div class="author-info">
+                                <h4>Sunil Nair</h4>
+                                <p>Fastag Service</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            As a student, their exam form filling service saved me so much time. They handled my
+                            university
+                            admission process perfectly.
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AS</div>
+                            <div class="author-info">
+                                <h4>Anjali Singh</h4>
+                                <p>Student Services</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            Property registration was a headache until I found Prime Service Center. They completed all
+                            documentation in just 5 days!
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">VP</div>
+                            <div class="author-info">
+                                <h4>Vikram Patel</h4>
+                                <p>Property Registration</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            Emergency passport service was a lifesaver! They helped me get my passport in 7 days for my
+                            urgent
+                            business trip.
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MG</div>
+                            <div class="author-info">
+                                <h4>Mohit Gupta</h4>
+                                <p>Passport Service</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            Their travel booking service has zero commission! Saved money on my flight tickets and got
+                            the best
+                            deals.
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">NK</div>
+                            <div class="author-info">
+                                <h4>Neha Kapoor</h4>
+                                <p>Travel Booking</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            Best printing service in town! Got my wedding invitation cards designed and printed at very
+                            reasonable rates.
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">RS</div>
+                            <div class="author-info">
+                                <h4>Rohit Sharma</h4>
+                                <p>Printing Services</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            ‍Family package is amazing! All 4 family members get services at discounted rates. Truly
+                            value-for-money service.
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">DJ</div>
+                            <div class="author-info">
+                                <h4>Deepa Joshi</h4>
+                                <p>Family Package</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            Bank account opening was so smooth. They visited my home for document collection and
+                            delivered the
+                            passbook.
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AP</div>
+                            <div class="author-info">
+                                <h4>Arun Prasad</h4>
+                                <p>Banking Services</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            Scholarship application for my daughter was handled perfectly. Got the scholarship approved
+                            in first
+                            attempt!
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SM</div>
+                            <div class="author-info">
+                                <h4>Suresh Mishra</h4>
+                                <p>Scholarship Application</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slider Navigation -->
+            <button class="slider-btn next-btn" onclick="moveSlide(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <!-- Slider Dots -->
+            <div class="slider-dots">
+                <!-- Dots will be generated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Auto-play Controls -->
+        <div class="slider-controls">
+            <button class="control-btn" onclick="toggleAutoPlay()">
+                <i class="fas fa-pause" id="playPauseIcon"></i>
+                <span id="playPauseText">Pause Auto-play</span>
+            </button>
+            <div class="slider-speed">
+                <span>Speed:</span>
+                <button class="speed-btn" onclick="changeSpeed(-1)">Slower</button>
+                <span id="speedDisplay">5s</span>
+                <button class="speed-btn" onclick="changeSpeed(1)">Faster</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <h2 class="section-title">Our Pricing</h2>
+        <div class="pricing-table">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Starter Pack</h3>
+                    <div class="price">₹99<span>/month</span></div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Basic Form Filling</li>
+                    <li><i class="fas fa-check"></i> Photocopy Services (50 pages)</li>
+                    <li><i class="fas fa-check"></i> Basic Document Assistance</li>
+                    <li><i class="fas fa-check"></i> Email Support</li>
+                    <li><i class="fas fa-check"></i> 1 Government Form</li>
+                </ul>
+                <a href="#contact" class="pricing-button">Start Now</a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Student Package</h3>
+                    <div class="price">₹199<span>/month</span></div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Exam Form Filling (Up to 5)</li>
+                    <li><i class="fas fa-check"></i> Scholarship Applications</li>
+                    <li><i class="fas fa-check"></i> Resume Making (Basic)</li>
+                    <li><i class="fas fa-check"></i> Document Photocopy (100 pages)</li>
+                    <li><i class="fas fa-check"></i> Admission Form Assistance</li>
+                </ul>
+                <a href="#contact" class="pricing-button">For Students</a>
+            </div>
+
+            <div class="pricing-card popular">
+                <div class="pricing-header">
+                    <h3>Professional Package</h3>
+                    <div class="price">₹499<span>/month</span></div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Aadhar/PAN Services (2 each)</li>
+                    <li><i class="fas fa-check"></i> Professional Resume Making</li>
+                    <li><i class="fas fa-check"></i> Ticket Booking (Flight/Train/Bus)</li>
+                    <li><i class="fas fa-check"></i> Bank Account Assistance</li>
+                    <li><i class="fas fa-check"></i> Priority Phone Support</li>
+                    <li><i class="fas fa-check"></i> Document Printing (200 pages)</li>
+                </ul>
+                <a href="#contact" class="pricing-button">Most Popular</a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Business Package</h3>
+                    <div class="price">₹999<span>/month</span></div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> GST Registration Assistance</li>
+                    <li><i class="fas fa-check"></i> Company Registration Help</li>
+                    <li><i class="fas fa-check"></i> Tax Filing Support</li>
+                    <li><i class="fas fa-check"></i> Bulk Printing Services</li>
+                    <li><i class="fas fa-check"></i> Legal Document Drafting</li>
+                    <li><i class="fas fa-check"></i> Priority Email & Phone Support</li>
+                </ul>
+                <a href="#contact" class="pricing-button">For Business</a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Family Package</h3>
+                    <div class="price">₹749<span>/month</span></div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Services for 4 Family Members</li>
+                    <li><i class="fas fa-check"></i> All Document Services</li>
+                    <li><i class="fas fa-check"></i> Travel Booking for Family</li>
+                    <li><i class="fas fa-check"></i> Bank Services for All Members</li>
+                    <li><i class="fas fa-check"></i> Property Document Assistance</li>
+                    <li><i class="fas fa-check"></i> Home Service Available</li>
+                </ul>
+                <a href="#contact" class="pricing-button">For Family</a>
+            </div>
+
+            <div class="pricing-card premium">
+                <div class="pricing-header">
+                    <h3>Premium Package</h3>
+                    <div class="price">₹1,499<span>/month</span></div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> All Services Unlimited</li>
+                    <li><i class="fas fa-check"></i> Legal & Property Services</li>
+                    <li><i class="fas fa-check"></i> Custom Printing & Design</li>
+                    <li><i class="fas fa-check"></i> 24/7 Priority Support</li>
+                    <li><i class="fas fa-check"></i> Home Service (Monthly 2 visits)</li>
+                    <li><i class="fas fa-check"></i> Document Courier Service</li>
+                    <li><i class="fas fa-check"></i> Emergency Services</li>
+                </ul>
+                <a href="#contact" class="pricing-button">Go Premium</a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Annual Package</h3>
+                    <div class="price">₹4,999<span>/year</span></div>
+                    <div class="price-save">Save ₹3,989</div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> All Premium Features</li>
+                    <li><i class="fas fa-check"></i> 12 Months Service</li>
+                    <li><i class="fas fa-check"></i> 2 Months Free</li>
+                    <li><i class="fas fa-check"></i> Free Document File</li>
+                    <li><i class="fas fa-check"></i> Free Cup Printing (2 pieces)</li>
+                    <li><i class="fas fa-check"></i> Birthday/Anniversary Offers</li>
+                    <li><i class="fas fa-check"></i> Dedicated Relationship Manager</li>
+                </ul>
+                <a href="#contact" class="pricing-button">Best Value</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>How long does Aadhar correction take?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Typically 7-10 working days after submission. We provide tracking facility to monitor your
+                        application status.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>What documents do I need for PAN card application?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>You need proof of identity (Aadhar, Passport, Driving License), proof of address, and passport
+                        size photographs.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>Do you provide home service?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we provide home service for document collection and delivery with an additional nominal
+                        charge of ₹100.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>What are your working hours?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We are open Monday to Saturday from 9:00 AM to 8:00 PM, and Sunday from 10:00 AM to 4:00 PM.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>Is my personal information safe with you?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! We follow strict confidentiality protocols and your documents are handled with utmost
+                        security.</p>
+                </div>
+            </div>
+
+            <!-- New FAQ Items Start Here -->
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>What is the process for opening a bank account?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We help you with complete bank account opening process including document preparation, form
+                        filling, and bank coordination. You need Aadhar, PAN card, address proof, and passport photos.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>How much time does passport application take?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Normal passport application takes 15-30 days after document submission. Tatkal passport can be
+                        processed in 7-10 days with additional charges.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>Do you provide refund if service is not completed?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer 100% refund if we fail to complete the service due to our fault. However,
+                        government fees are non-refundable once paid.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>Can I get same-day service for urgent work?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer express service for urgent requirements with 50% additional charges. Please call us
+                        in advance for same-day service availability.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>What payment methods do you accept?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We accept cash, UPI (Google Pay, PhonePe, Paytm), credit/debit cards, and net banking. 50%
+                        advance is required for all services.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>How do I track my application status?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We provide application tracking number and regular updates via WhatsApp. You can also visit our
+                        center or call us for status updates.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>Do you provide services for students?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer special discounts for students on services like exam form filling, scholarship
+                        applications, resume making, and educational document attestation.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>What is the cost for resume making service?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Basic resume starts at ₹50, professional resume with cover letter costs ₹100, and premium resume
+                        with LinkedIn optimization costs ₹200.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>Do you help with government scholarship forms?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we specialize in government scholarship applications including OBC, SC/ST, minority
+                        scholarships, and merit-based scholarships with documentation support.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>Can you help with property registration documents?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we provide complete assistance with property registration, stamp duty payment, mutation
+                        certificate, and land tax payment services.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>Do you provide courier service for documents?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer document courier service through reputed courier companies. Charges vary based on
+                        location and document urgency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Maps -->
+    <div class="map-container">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.337332264236!2d77.20656247532012!3d28.586086175695224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2daa9eb4d0b%3A0x717971125923e5d!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi%20110001!5e0!3m2!1sen!2sin!4v1683110689475!5m2!1sen!2sin"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-container">
+            <!-- Contact Information (Left Side) -->
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Visit Us</h3>
+                        <p>123 Service Street, Business District<br>City, State 123456</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Call Us</h3>
+                        <p>+91 98765 43210<br>+91 98765 43211</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h3>Email Us</h3>
+                        <p>info@primeservicecenter.com<br>support@primeservicecenter.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h3>Business Hours</h3>
+                        <p>Monday - Friday: 9:00 AM - 8:00 PM<br>Saturday: 9:00 AM - 6:00 PM<br>Sunday: 10:00 AM - 4:00
+                            PM</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div>
+                        <h3>Quick Support</h3>
+                        <p>WhatsApp: +91 98765 43210<br>Telegram: @primeservice</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form (Right Side) -->
+            <div class="contact-form-container">
+                <h3>Send Us a Message</h3>
+                <p class="form-subtitle">Get in touch with us for any service inquiry</p>
+
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i> Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone"><i class="fas fa-phone"></i> Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your 10-digit mobile number"
+                            required pattern="[0-9]{10}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service"><i class="fas fa-concierge-bell"></i> Service Required *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="aadhar">Aadhar Services</option>
+                            <option value="pan">PAN Card Services</option>
+                            <option value="license">Driving License</option>
+                            <option value="resume">Resume Making</option>
+                            <option value="banking">Banking Services</option>
+                            <option value="travel">Travel Booking</option>
+                            <option value="printing">Printing Services</option>
+                            <option value="fastag">Fastag Services</option>
+                            <option value="property">Property Services</option>
+                            <option value="other">Other Services</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message"><i class="fas fa-comment"></i> Message *</label>
+                        <textarea id="message" name="message" rows="4"
+                            placeholder="Please describe your requirement in detail..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="preferred-contact"><i class="fas fa-comments"></i> Preferred Contact Method</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="contact-method" value="whatsapp" checked>
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="contact-method" value="phone">
+                                <i class="fas fa-phone"></i> Phone Call
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="contact-method" value="email">
+                                <i class="fas fa-envelope"></i> Email
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="callback" checked>
+                            <span>Request immediate callback (within 30 minutes)</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+
+                    <p class="form-note">* Required fields. We'll contact you within 1 hour.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Prime Service Center</div>
+            <p>Your trusted partner for all documentation, financial, travel, and utility services.</p>
+            <div class="copyright">
+                <p>&copy; 2023 Prime Service Center. All rights reserved.</p>
+                <p>Designed with <i class="fas fa-heart" style="color: #ff4757;"></i> for seamless service experience
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Testimonial Slider JavaScript
+        let currentSlide = 0;
+        let totalSlides = 0;
+        let autoPlayInterval;
+        let slideInterval = 5000; // 5 seconds
+        let isAutoPlaying = true;
+
+        // Initialize slider
+        function initSlider() {
+            const slides = document.querySelectorAll('.testimonial-slide');
+            totalSlides = slides.length;
+
+            // Create dots
+            const dotsContainer = document.querySelector('.slider-dots');
+            dotsContainer.innerHTML = '';
+
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'dot';
+                dot.setAttribute('data-index', i);
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+
+            updateSlider();
+            startAutoPlay();
+        }
+
+        // Move slide
+        function moveSlide(direction) {
+            currentSlide += direction;
+
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            } else if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+
+            updateSlider();
+            resetAutoPlay();
+        }
+
+        // Go to specific slide
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+            resetAutoPlay();
+        }
+
+        // Update slider display
+        function updateSlider() {
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const dots = document.querySelectorAll('.dot');
+
+            // Hide all slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            // Remove active from all dots
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+
+            // Show current slide
+            slides[currentSlide].classList.add('active');
+
+            // Activate current dot
+            if (dots[currentSlide]) {
+                dots[currentSlide].classList.add('active');
+            }
+        }
+
+        // Auto-play functions
+        function startAutoPlay() {
+            if (isAutoPlaying) {
+                autoPlayInterval = setInterval(() => {
+                    moveSlide(1);
+                }, slideInterval);
+
+                updatePlayButton(true);
+            }
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+            updatePlayButton(false);
+        }
+
+        function resetAutoPlay() {
+            stopAutoPlay();
+            if (isAutoPlaying) {
+                startAutoPlay();
+            }
+        }
+
+        function toggleAutoPlay() {
+            isAutoPlaying = !isAutoPlaying;
+
+            if (isAutoPlaying) {
+                startAutoPlay();
+            } else {
+                stopAutoPlay();
+            }
+        }
+
+        function changeSpeed(direction) {
+            if (direction > 0) {
+                slideInterval = Math.max(2000, slideInterval - 1000); // Minimum 2 seconds
+            } else {
+                slideInterval = Math.min(10000, slideInterval + 1000); // Maximum 10 seconds
+            }
+
+            document.getElementById('speedDisplay').textContent = (slideInterval / 1000) + 's';
+
+            if (isAutoPlaying) {
+                resetAutoPlay();
+            }
+        }
+
+        function updatePlayButton(isPlaying) {
+            const icon = document.getElementById('playPauseIcon');
+            const text = document.getElementById('playPauseText');
+
+            if (isPlaying) {
+                icon.className = 'fas fa-pause';
+                text.textContent = 'Pause Auto-play';
+            } else {
+                icon.className = 'fas fa-play';
+                text.textContent = 'Play Auto-play';
+            }
+        }
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function handleTouchStart(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }
+
+        function handleTouchEnd(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+
+            if (touchStartX - touchEndX > swipeThreshold) {
+                // Swipe left - next slide
+                moveSlide(1);
+            }
+
+            if (touchEndX - touchStartX > swipeThreshold) {
+                // Swipe right - previous slide
+                moveSlide(-1);
+            }
+        }
+
+        // Initialize slider when page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            initSlider();
+
+            // Add touch events for mobile
+            const slider = document.querySelector('.testimonial-slider-container');
+            slider.addEventListener('touchstart', handleTouchStart);
+            slider.addEventListener('touchend', handleTouchEnd);
+        });
+
+        // Pause auto-play when user interacts with slider
+        document.querySelector('.testimonial-slider-container').addEventListener('mouseenter', stopAutoPlay);
+        document.querySelector('.testimonial-slider-container').addEventListener('mouseleave', function () {
+            if (isAutoPlaying) {
+                startAutoPlay();
+            }
+        });
+
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Change hamburger icon
+            const icon = hamburger.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.querySelector('i').classList.remove('fa-times');
+                hamburger.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add animation to service cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe service categories for animation
+        document.querySelectorAll('.service-category').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s, transform 0.5s';
+            observer.observe(card);
+        });
+
+        // Service Search Functionality
+        const serviceSearch = document.getElementById('serviceSearch');
+        serviceSearch.addEventListener('input', function (e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            const services = document.querySelectorAll('.service-category');
+
+            services.forEach(service => {
+                const serviceText = service.textContent.toLowerCase();
+                if (searchTerm === '' || serviceText.includes(searchTerm)) {
+                    service.style.display = 'block';
+                    setTimeout(() => {
+                        service.style.opacity = '1';
+                        service.style.transform = 'translateY(0)';
+                    }, 100);
+                } else {
+                    service.style.opacity = '0';
+                    service.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        service.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+
+        // FAQ Toggle Function
+        window.toggleFAQ = function (element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+
+            answer.classList.toggle('active');
+            if (answer.classList.contains('active')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        };
+
+        // Active Navigation Highlighting
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section, .container, .testimonials, .pricing, .faq, .contact-section');
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Fallback for home
+            if (scrollY < 100) {
+                document.querySelector('.nav-links a[href="#home"]').classList.add('active');
+            }
+        });
+
+        // Preload images for better performance
+        window.addEventListener('load', function () {
+            const heroImage = new Image();
+            heroImage.src = 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80';
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Form validation
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const service = document.getElementById('service').value;
+                const message = document.getElementById('message').value;
+
+                if (!name || !phone || !service || !message) {
+                    alert('Please fill all required fields!');
+                    return;
+                }
+
+                // Phone validation
+                const phoneRegex = /^[0-9]{10}$/;
+                if (!phoneRegex.test(phone)) {
+                    alert('Please enter a valid 10-digit phone number!');
+                    return;
+                }
+
+                // Get form data
+                const formData = {
+                    name: name,
+                    phone: phone,
+                    email: document.getElementById('email').value || 'Not provided',
+                    service: document.getElementById('service').options[document.getElementById('service').selectedIndex].text,
+                    message: message,
+                    contactMethod: document.querySelector('input[name="contact-method"]:checked').value,
+                    callback: document.querySelector('input[name="callback"]').checked
+                };
+
+                // Show success message
+                alert('Thank you, ' + name + '! Your message has been sent.\nWe will contact you via ' +
+                    (formData.contactMethod === 'whatsapp' ? 'WhatsApp' :
+                        formData.contactMethod === 'phone' ? 'Phone Call' : 'Email') +
+                    ' within 1 hour.');
+
+                // Reset form
+                contactForm.reset();
+
+                // Reset radio buttons
+                document.querySelector('input[name="contact-method"][value="whatsapp"]').checked = true;
+                document.querySelector('input[name="callback"]').checked = true;
+            });
+        }
+
+        // Loading Spinner
+        window.addEventListener('load', function () {
+            setTimeout(() => {
+                document.getElementById('loadingSpinner').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loadingSpinner').style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+
+        // Cookie Consent
+        const cookieConsent = document.getElementById('cookieConsent');
+        const acceptCookies = document.getElementById('acceptCookies');
+
+        if (!localStorage.getItem('cookiesAccepted')) {
+            cookieConsent.style.display = 'flex';
+        }
+
+        acceptCookies.addEventListener('click', function () {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookieConsent.style.display = 'none';
+        });
+
+        // Live Chat Toggle
+        const chatToggle = document.getElementById('chatToggle');
+        const liveChat = document.getElementById('liveChat');
+
+        chatToggle.addEventListener('click', function () {
+            if (liveChat.style.display === 'block') {
+                liveChat.style.display = 'none';
+            } else {
+                liveChat.style.display = 'block';
+            }
+        });
+
+        // Live Chat Functionality
+        const chatInput = document.getElementById('chatInput');
+        const chatMessages = document.getElementById('chatMessages');
+
+        chatInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter' && this.value.trim()) {
+                const userMessage = this.value;
+
+                // Add user message
+                const userMsgDiv = document.createElement('div');
+                userMsgDiv.className = 'message';
+                userMsgDiv.style.backgroundColor = 'var(--secondary-dark)';
+                userMsgDiv.style.alignSelf = 'flex-end';
+                userMsgDiv.innerHTML = `<p>${userMessage}</p>`;
+                chatMessages.appendChild(userMsgDiv);
+
+                this.value = '';
+
+                // Auto reply after 1 second
+                setTimeout(() => {
+                    const responses = [
+                        "Thank you for your message. Our representative will contact you shortly.",
+                        "We'll get back to you within 30 minutes with more information.",
+                        "Please share your contact number for faster assistance.",
+                        "We're here to help! Which service are you interested in?"
+                    ];
+
+                    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+
+                    const agentMsgDiv = document.createElement('div');
+                    agentMsgDiv.className = 'message agent';
+                    agentMsgDiv.innerHTML = `<p>${randomResponse}</p>`;
+                    chatMessages.appendChild(agentMsgDiv);
+
+                    // Scroll to bottom
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
+
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        });
+    </script>
+</body>
+
+</html>

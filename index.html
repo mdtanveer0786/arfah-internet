@@ -1957,11 +1957,6 @@
                             evolved into a full-service center offering more than 50 different services under one roof.
                         </p>
 
-                        <p>Our journey began with a simple mission: to make essential services accessible, affordable,
-                            and hassle-free for everyone in our community. Over the past two decades, we've grown to
-                            become the most trusted service center in the region, helping thousands of customers with
-                            their documentation, financial, travel, and utility needs.</p>
-
                         <div class="mission-vision">
                             <div class="mission">
                                 <h4><i class="fas fa-bullseye"></i> Our Mission</h4>
@@ -2013,9 +2008,7 @@
                         <div class="team-info">
                             <h4><i class="fas fa-user-tie"></i> Our Expert Team</h4>
                             <p>Our team consists of trained professionals with expertise in various domains including
-                                documentation, banking procedures, travel booking, and technical services. Each team
-                                member undergoes regular training to stay updated with the latest government regulations
-                                and service procedures.</p>
+                                documentation, banking procedures, travel booking, and technical services.</p>
 
                             <div class="team-stats">
                                 <div class="team-stat">
@@ -2053,42 +2046,42 @@
                         <div class="timeline-year">2001</div>
                         <div class="timeline-content">
                             <h4>Humble Beginnings</h4>
-                            <p>Started as a small cyber cafe with basic computer and internet services</p>
+                            <p>Started as a small cyber cafe</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-year">2005</div>
                         <div class="timeline-content">
                             <h4>Expansion</h4>
-                            <p>Added documentation and printing services to meet growing demand</p>
+                            <p>Added documentation services</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-year">2010</div>
                         <div class="timeline-content">
-                            <h4>Government Services</h4>
-                            <p>Became an authorized center for Aadhar, PAN, and other government services</p>
+                            <h4>Govt Services</h4>
+                            <p>Became authorized for Aadhar, PAN</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-year">2015</div>
                         <div class="timeline-content">
                             <h4>Financial Services</h4>
-                            <p>Added banking and financial services including money transfer and account opening</p>
+                            <p>Added banking services</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-year">2020</div>
                         <div class="timeline-content">
-                            <h4>Digital Transformation</h4>
-                            <p>Implemented online booking and digital document management system</p>
+                            <h4>Digital Upgrade</h4>
+                            <p>Online booking system</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-year">2023</div>
                         <div class="timeline-content">
                             <h4>50+ Services</h4>
-                            <p>Expanded to offer more than 50 different services under one roof</p>
+                            <p>Comprehensive service center</p>
                         </div>
                     </div>
                 </div>
@@ -2099,54 +2092,67 @@
     <style>
         /* About Section Styles */
         .about-section {
-            padding: 5rem 2rem;
+            padding: 3rem 1rem;
             background: var(--primary-dark);
             position: relative;
             overflow: hidden;
         }
 
-        .about-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+        .about-section .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
 
+        /* Main Content Layout */
         .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            margin-top: 2rem;
         }
 
-        @media (max-width: 992px) {
+        @media (min-width: 992px) {
             .about-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
+                flex-direction: row;
+                gap: 4rem;
+            }
+
+            .about-image {
+                flex: 1;
+            }
+
+            .about-text {
+                flex: 1;
             }
         }
 
-        /* About Image Section */
-        .about-image {
-            position: relative;
-        }
-
+        /* Image Section */
         .image-container {
             position: relative;
-            border-radius: 15px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 20px 40px var(--shadow);
+            box-shadow: 0 10px 30px var(--shadow);
             border: 2px solid rgba(100, 255, 218, 0.2);
         }
 
         .about-main-img {
             width: 100%;
-            height: 400px;
+            height: 300px;
             object-fit: cover;
             transition: transform 0.5s;
+        }
+
+        @media (min-width: 768px) {
+            .about-main-img {
+                height: 350px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .about-main-img {
+                height: 400px;
+            }
         }
 
         .image-container:hover .about-main-img {
@@ -2159,36 +2165,52 @@
             left: 0;
             right: 0;
             background: linear-gradient(transparent, rgba(10, 25, 47, 0.9));
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .overlay-text h3 {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             color: var(--accent-blue);
             margin-bottom: 0.5rem;
         }
 
         .overlay-text p {
             color: var(--text-light);
-            font-size: 1.1rem;
+            font-size: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .overlay-text h3 {
+                font-size: 2.2rem;
+            }
+
+            .overlay-text p {
+                font-size: 1.1rem;
+            }
         }
 
         /* Achievement Badges */
         .achievement-badges {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(1, 1fr);
             gap: 1rem;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (min-width: 480px) {
+            .achievement-badges {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         .achievement-badge {
             background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 10px;
+            padding: 1rem;
+            border-radius: 8px;
             display: flex;
             align-items: center;
-            gap: 1rem;
-            transition: transform 0.3s;
+            gap: 0.8rem;
+            transition: all 0.3s;
         }
 
         .achievement-badge:hover {
@@ -2197,124 +2219,178 @@
         }
 
         .badge-icon {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-light-blue));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary-dark);
-            font-size: 1.5rem;
+            font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
         .badge-content h4 {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: var(--accent-blue);
             margin-bottom: 0.2rem;
+            line-height: 1.2;
         }
 
         .badge-content p {
             color: var(--text-gray);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            line-height: 1.2;
+        }
+
+        @media (min-width: 768px) {
+            .achievement-badge {
+                padding: 1.2rem;
+            }
+
+            .badge-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+
+            .badge-content h4 {
+                font-size: 1.3rem;
+            }
+
+            .badge-content p {
+                font-size: 0.9rem;
+            }
         }
 
         /* About Text Section */
         .about-header {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .about-header h3 {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             color: var(--accent-blue);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
         }
 
         .tagline {
             color: var(--text-gray);
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-style: italic;
-            padding-left: 1rem;
+            padding-left: 0.8rem;
             border-left: 3px solid var(--accent-blue);
         }
 
-        .about-description {
-            margin-bottom: 2rem;
-        }
+        @media (min-width: 768px) {
+            .about-header h3 {
+                font-size: 2rem;
+            }
 
-        .about-description p {
-            color: var(--text-gray);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
+            .tagline {
+                font-size: 1.1rem;
+            }
         }
 
         /* Mission & Vision */
         .mission-vision {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 2rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
         }
 
-        @media (max-width: 768px) {
+        @media (min-width: 768px) {
             .mission-vision {
-                grid-template-columns: 1fr;
+                flex-direction: row;
+                gap: 2rem;
             }
         }
 
         .mission,
         .vision {
             background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 10px;
+            padding: 1.2rem;
+            border-radius: 8px;
             border-left: 4px solid var(--accent-blue);
+            flex: 1;
         }
 
         .mission h4,
         .vision h4 {
             color: var(--accent-blue);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-        }
-
-        .mission h4 i,
-        .vision h4 i {
-            color: var(--accent-blue);
+            font-size: 1.1rem;
         }
 
         .mission p,
         .vision p {
             color: var(--text-gray);
             line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 768px) {
+
+            .mission,
+            .vision {
+                padding: 1.5rem;
+            }
+
+            .mission h4,
+            .vision h4 {
+                font-size: 1.2rem;
+            }
+
+            .mission p,
+            .vision p {
+                font-size: 1rem;
+            }
         }
 
         /* Values Section */
         .values {
-            margin: 2rem 0;
+            margin: 1.5rem 0;
         }
 
         .values h4 {
             color: var(--accent-blue);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-size: 1.2rem;
         }
 
         .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1rem;
+        }
+
+        @media (min-width: 480px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .values-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
 
         .value-item {
             background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 10px;
+            padding: 1.2rem;
+            border-radius: 8px;
             text-align: center;
-            transition: transform 0.3s;
+            transition: all 0.3s;
         }
 
         .value-item:hover {
@@ -2323,54 +2399,75 @@
         }
 
         .value-icon {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background: rgba(100, 255, 218, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem;
+            margin: 0 auto 0.8rem;
             color: var(--accent-blue);
-            font-size: 1.5rem;
+            font-size: 1.3rem;
         }
 
         .value-item h5 {
             color: var(--text-light);
             margin-bottom: 0.5rem;
+            font-size: 1rem;
         }
 
         .value-item p {
             color: var(--text-gray);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        @media (min-width: 768px) {
+            .value-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .value-item h5 {
+                font-size: 1.1rem;
+            }
+
+            .value-item p {
+                font-size: 0.9rem;
+            }
         }
 
         /* Team Info */
         .team-info {
-            margin: 2rem 0;
-            padding: 1.5rem;
+            margin: 1.5rem 0;
+            padding: 1.2rem;
             background: rgba(100, 255, 218, 0.05);
-            border-radius: 10px;
+            border-radius: 8px;
         }
 
         .team-info h4 {
             color: var(--accent-blue);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-size: 1.2rem;
         }
 
         .team-info p {
             color: var(--text-gray);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
 
         .team-stats {
             display: flex;
-            justify-content: space-around;
-            gap: 1rem;
-            margin-top: 2rem;
+            justify-content: space-between;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
         }
 
         .team-stat {
@@ -2380,84 +2477,120 @@
 
         .stat-number {
             display: block;
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--accent-blue);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
         }
 
         .stat-label {
             color: var(--text-gray);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+        }
+
+        @media (min-width: 768px) {
+            .team-info {
+                padding: 1.5rem;
+            }
+
+            .team-info h4 {
+                font-size: 1.3rem;
+            }
+
+            .team-info p {
+                font-size: 1rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .stat-label {
+                font-size: 0.9rem;
+            }
         }
 
         /* About CTA */
         .about-cta {
             display: flex;
+            flex-direction: column;
             gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        @media (min-width: 480px) {
+            .about-cta {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
         }
 
         .about-cta .cta-button {
-            flex: 1;
-            min-width: 200px;
             text-align: center;
+            padding: 0.8rem 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 480px) {
+            .about-cta .cta-button {
+                flex: 1;
+                min-width: 180px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .about-cta .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
         }
 
         /* Timeline Section */
         .timeline-section {
-            margin-top: 4rem;
-            padding: 3rem;
+            margin-top: 3rem;
+            padding: 2rem 1rem;
             background: var(--card-bg);
-            border-radius: 15px;
+            border-radius: 10px;
             position: relative;
         }
 
         .timeline-title {
             text-align: center;
             color: var(--accent-blue);
-            font-size: 2rem;
-            margin-bottom: 3rem;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
         }
 
         .timeline {
             position: relative;
-            max-width: 800px;
+            max-width: 100%;
             margin: 0 auto;
         }
 
         .timeline::before {
             content: '';
             position: absolute;
-            left: 50%;
+            left: 20px;
             top: 0;
             bottom: 0;
             width: 2px;
             background: var(--accent-blue);
-            transform: translateX(-50%);
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 3rem;
-            width: 50%;
-            padding: 0 2rem;
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
+            margin-bottom: 2rem;
+            width: 100%;
+            padding-left: 50px;
+            padding-right: 1rem;
         }
 
         .timeline-year {
             position: absolute;
             top: 0;
-            width: 80px;
-            height: 80px;
+            left: 0;
+            width: 60px;
+            height: 60px;
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-light-blue));
             color: var(--primary-dark);
             border-radius: 50%;
@@ -2465,22 +2598,14 @@
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1rem;
             z-index: 1;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-year {
-            right: -40px;
-        }
-
-        .timeline-item:nth-child(even) .timeline-year {
-            left: -40px;
         }
 
         .timeline-content {
             background: var(--secondary-dark);
-            padding: 1.5rem;
-            border-radius: 10px;
+            padding: 1rem;
+            border-radius: 8px;
             box-shadow: 0 5px 15px var(--shadow);
             position: relative;
         }
@@ -2488,62 +2613,125 @@
         .timeline-content h4 {
             color: var(--accent-blue);
             margin-bottom: 0.5rem;
+            font-size: 1.1rem;
         }
 
         .timeline-content p {
             color: var(--text-gray);
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
 
-        /* Responsive Timeline */
-        @media (max-width: 768px) {
+        /* Desktop Timeline */
+        @media (min-width: 768px) {
+            .timeline-section {
+                padding: 2.5rem;
+            }
+
+            .timeline-title {
+                font-size: 2rem;
+                margin-bottom: 3rem;
+            }
+
             .timeline::before {
-                left: 20px;
+                left: 50%;
+                transform: translateX(-50%);
             }
 
             .timeline-item {
-                width: 100%;
-                left: 0 !important;
-                padding-left: 50px;
+                width: 50%;
+                padding: 0 2rem;
+            }
+
+            .timeline-item:nth-child(odd) {
+                left: 0;
+                padding-left: 0;
+                padding-right: 2rem;
+                text-align: right;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 50%;
+                padding-left: 2rem;
+                padding-right: 0;
+                text-align: left;
             }
 
             .timeline-year {
-                left: 0 !important;
-                right: auto !important;
+                width: 70px;
+                height: 70px;
+                font-size: 1.1rem;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-year {
+                left: auto;
+                right: -35px;
+            }
+
+            .timeline-item:nth-child(even) .timeline-year {
+                left: -35px;
+            }
+
+            .timeline-content {
+                padding: 1.5rem;
+            }
+
+            .timeline-content h4 {
+                font-size: 1.2rem;
+            }
+
+            .timeline-content p {
+                font-size: 1rem;
             }
         }
 
-        /* Navigation mein About Link Add Karein */
-        /* Yeh code navigation ke liye hai - agar navigation mein about add karna hai */
+        @media (min-width: 992px) {
+            .timeline-year {
+                width: 80px;
+                height: 80px;
+                font-size: 1.2rem;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-year {
+                right: -40px;
+            }
+
+            .timeline-item:nth-child(even) .timeline-year {
+                left: -40px;
+            }
+        }
+
+        /* Animation */
+        .timeline-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .value-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .achievement-badge {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
     </style>
 
     <script>
         // About Section Animation
         document.addEventListener('DOMContentLoaded', function () {
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
             // Timeline animation
-            const timelineItems = document.querySelectorAll('.timeline-item');
-
             const timelineObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            timelineItems.forEach(item => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(30px)';
-                item.style.transition = 'opacity 0.5s, transform 0.5s';
-                timelineObserver.observe(item);
-            });
-
-            // Value items animation
-            const valueItems = document.querySelectorAll('.value-item');
-
-            const valueObserver = new IntersectionObserver((entries) => {
                 entries.forEach((entry, index) => {
                     if (entry.isIntersecting) {
                         setTimeout(() => {
@@ -2552,24 +2740,51 @@
                         }, index * 100);
                     }
                 });
-            }, {
-                threshold: 0.1
+            }, observerOptions);
+
+            // Value items animation
+            const valueObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 50);
+                    }
+                });
+            }, observerOptions);
+
+            // Achievement badges animation
+            const badgeObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 50);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all elements
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                timelineObserver.observe(item);
             });
 
-            valueItems.forEach(item => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(20px)';
-                item.style.transition = 'opacity 0.5s, transform 0.5s';
+            document.querySelectorAll('.value-item').forEach(item => {
                 valueObserver.observe(item);
             });
 
-            // Achievement badges hover effect
-            const achievementBadges = document.querySelectorAll('.achievement-badge');
-            achievementBadges.forEach(badge => {
+            document.querySelectorAll('.achievement-badge').forEach(badge => {
+                badgeObserver.observe(badge);
+            });
+
+            // Hover effects for achievement badges
+            document.querySelectorAll('.achievement-badge').forEach(badge => {
                 badge.addEventListener('mouseenter', function () {
                     const icon = this.querySelector('.badge-icon');
                     icon.style.transform = 'rotate(360deg)';
-                    icon.style.transition = 'transform 0.5s';
+                    icon.style.transition = 'transform 0.5s ease';
                 });
 
                 badge.addEventListener('mouseleave', function () {
@@ -2577,6 +2792,20 @@
                     icon.style.transform = 'rotate(0deg)';
                 });
             });
+
+            // Image hover effect
+            const imageContainer = document.querySelector('.image-container');
+            if (imageContainer) {
+                imageContainer.addEventListener('mouseenter', function () {
+                    const img = this.querySelector('.about-main-img');
+                    img.style.transform = 'scale(1.05)';
+                });
+
+                imageContainer.addEventListener('mouseleave', function () {
+                    const img = this.querySelector('.about-main-img');
+                    img.style.transform = 'scale(1)';
+                });
+            }
         });
     </script>
     <!-- Testimonials Section -->
@@ -3763,7 +3992,8 @@
                     <div>
                         <h3>Visit Us</h3>
                         <p>49F9+7H7, Arfah Internet, <br>Buttler Road, Maripur, near <br>Maripur Main Road, Chowk,
-                            <br>Muzaffarpur, 842001</p>
+                            <br>Muzaffarpur, 842001
+                        </p>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -3975,8 +4205,8 @@
 
             <div class="footer-bottom">
                 <div class="copyright">
-                    <p>&copy; 2025 ArfahInternet. All rights reserved. | <a href="https://mdaman.vercel.app/"
-                            target="_blank">Designed and developed by Md Aman</a></p>
+                    <p>&copy; 2025 ArfahInternet. All rights reserved. | <a href="https://mdtanveeralam.vercel.app/"
+                            target="_blank">Developed By Md Tanveer Alam</a></p>
                     <p>Designed with <i class="fas fa-heart" style="color: #ff4757;"></i> for seamless service
                         experience</p>
                 </div>
